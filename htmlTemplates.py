@@ -57,6 +57,6 @@ footer="""<style>
 }
 </style>
 <div class='a-footer'>
-    <p>made by tahsinac ❤️</p>
+    <p>made with ❤️ for emily jane by tahsinac</p>
 </div>
 """
