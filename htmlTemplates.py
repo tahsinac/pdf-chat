@@ -42,3 +42,21 @@ user_template = '''
     <div class="message">{{MSG}}</div>
 </div>
 '''
+
+footer="""<style>
+.a-footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #00000;
+    color: grey;
+    text-align: right;
+    padding: 10px;
+}
+</style>
+<div class='a-footer'>
+    <p>made by tahsinac ❤️</p>
+</div>
+"""

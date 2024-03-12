@@ -7,7 +7,7 @@ from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-from htmlTemplates import css, bot_template, user_template
+from htmlTemplates import css, bot_template, user_template, footer
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -76,6 +76,8 @@ def main ():
     if user_question:
         handle_userinput(user_question)
 
+    st.markdown(footer, unsafe_allow_html=True)
+    
     with st.sidebar:
         st.subheader("Your documents")
         pdf_docs = st.file_uploader(
