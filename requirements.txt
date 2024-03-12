@@ -4,4 +4,3 @@ langchain
 python-dotenv
 faiss-cpu
 openai
-tittoken
