@@ -2,7 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
@@ -64,10 +64,10 @@ def handle_userinput(user_question):
 def main ():
     load_dotenv()
 
-    st.set_page_config(page_title="Chat with multiple PDFs",
+    st.set_page_config(page_title="lit-review-mate",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
-    st.header("Chat with multiple PDFs")
+    st.header("Chat with your research papers")
     
 
     if "conversation" not in st.session_state:
@@ -75,16 +75,16 @@ def main ():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
-    user_question = st.text_input("Ask a question about your documents:")
+    user_question = st.text_input("Ask anything about the research papers:")
     if user_question:
         handle_userinput(user_question)
 
     st.markdown(footer, unsafe_allow_html=True)
     
     with st.sidebar:
-        st.subheader("Your documents")
+        st.subheader("Your papers")
         pdf_docs = st.file_uploader(
-            "Upload your PDFs here and click on 'Process'", accept_multiple_files=True)
+            "Upload your research articles as PDFs here and click on 'Process'", accept_multiple_files=True)
         if st.button("Process"):
             with st.spinner("Processing"):
                 # get pdf text
